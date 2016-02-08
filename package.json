@@ -1,0 +1,23 @@
+{
+  "name": "@f/event-handler",
+  "description": "Create an event handler with some sweeter syntax",
+  "repository": "git://github.com/micro-js/event-handler.git",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "postversion": "git push && git push --tags && npm publish --access=public"
+  },
+  "dependencies": {
+    "@f/is-array": "^1.1.1",
+    "@f/is-function": "^1.1.1",
+    "@f/is-object": "^1.1.4",
+    "@f/keychord": "^1.1.1",
+    "@f/map": "^1.5.3",
+    "@f/over": "^1.0.0"
+  },
+  "devDependencies": {
+    "@f/keycodes": "^1.1.2",
+    "tape": "^4.2.2"
+  }
+}
