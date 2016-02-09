@@ -6,7 +6,7 @@
 [![NPM version][npm-image]][npm-url]
 [![Code style][standard-image]][standard-url]
 
-Create an event handler with some sweeter syntax. Kind of like the excellent, [classnames](https://github.com/JedWatson/classnames), but for events.
+Syntax sugar for events handlers. Kind of like the excellent, [classnames](https://github.com/JedWatson/classnames), but for events.
 
 ## Installation
 
@@ -14,7 +14,9 @@ Create an event handler with some sweeter syntax. Kind of like the excellent, [c
 
 ## Usage
 
-It gives you some special syntax to make your event handlers more declarative and functional. You can create handlers for only certain keypresses, or handle a single event in multiple ways. E.g.
+This module gives you some special syntax to make your event handlers more declarative and functional. You can create handlers for only certain keypresses, or easily attach multiple handlers to a single event. 
+
+This example calls `updateText` with every keydown event, but also calls `submit` only when enter is pressed:
 
 ```js
 var ev = require('@f/event-handler')
@@ -24,7 +26,7 @@ function render () {
 }
 ```
 
-This example calls `updateText` with every keydown event, but also calls `submit` only when enter is pressed. You may pass an array, object, or just a plain function, and you may also do any of these things recursively. So, for instance:
+You may pass an array, object, or just a plain function, and you may also do any of these things recursively. So, for instance:
 
 ```js
 var ev = require('@f/event-handler')
@@ -34,11 +36,11 @@ function render () {
 }
 ```
 
-This will close the input and submit what was inputted when `enter` is pressed, and it will also update the text on every normal keydown.
+This will close the input and submit when `enter` is pressed, it will also update the text on every normal keydown.
 
 ## Return values
 
-If you rely on the return values of your handler, we have you covered. The value returned by your handlers will be returned from the constructed handler. If you've passed an array, that array will be mapped over the event, and the result will be returned.
+If you rely on the return values of your handler, we have you covered. The value returned by your handlers will be returned from the constructed handler. If you've passed an array, that array will be mapped [over](https://github.com/micro-js/over) the event, and the resulting array will be returned.
 
 ## API
 
