@@ -14,7 +14,7 @@ Syntax sugar for events handlers. Kind of like the excellent, [classnames](https
 
 ## Usage
 
-This module gives you some special syntax to make your event handlers more declarative and functional. You can create handlers for only certain keypresses, or easily attach multiple handlers to a single event. 
+This module gives you some special syntax to make your event handlers more declarative and functional. You can create handlers for only certain keypresses, or easily attach multiple handlers to a single event.
 
 This example calls `updateText` with every keydown event, but also calls `submit` only when enter is pressed:
 
@@ -37,6 +37,17 @@ function render () {
 ```
 
 This will close the input and submit when `enter` is pressed, it will also update the text on every normal keydown.
+If your descriptor is an object, the 'default' key will match every event:
+
+```js
+var ev = require('@f/event-handler')
+
+function render () {
+  return <input onKeyDown={ev({enter: submit, default: updateText})} />
+}
+```
+
+This will submit the input when `enter` is pressed and update the text on every __other__ keydown.
 
 ## Return values
 
