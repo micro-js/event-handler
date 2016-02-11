@@ -32,7 +32,7 @@ You may pass an array, object, or just a plain function, and you may also do any
 var ev = require('@f/event-handler')
 
 function render () {
-  return <input onKeyDown={ev[{enter: [submit, close]}, updateText]} />
+  return <input onKeyDown={ev([{enter: [submit, close]}, updateText])} />
 }
 ```
 
