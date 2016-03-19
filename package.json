@@ -14,7 +14,7 @@
     "@f/is-object": "^1.1.4",
     "@f/keychord": "^1.1.1",
     "@f/map": "^1.5.3",
-    "@f/over": "^1.0.0"
+    "@f/maybe-over": "^1.0.0"
   },
   "devDependencies": {
     "@f/keycodes": "^1.1.2",
