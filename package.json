@@ -2,7 +2,7 @@
   "name": "@f/event-handler",
   "description": "Create an event handler with some sweeter syntax",
   "repository": "git://github.com/micro-js/event-handler.git",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "main": "lib/index.js",
   "scripts": {
