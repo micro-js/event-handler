@@ -4,6 +4,7 @@
 
 var ev = require('..')
 var test = require('tape')
+var identity = require('@f/identity')
 var keychord = require('@f/keychord')
 var keycodes = require('@f/keycodes')
 
@@ -12,10 +13,12 @@ var keycodes = require('@f/keycodes')
  */
 
 test('should work', function (t) {
-  t.deepEqual(ev([isEven, isOdd])(4), [true, false])
+  t.deepEqual(ev([{handler: isEven, decoder: identity}, {handler: isOdd, decoder: identity}])(4), [true, false])
 
-  var handle = ev([keychord, {'ctrl+shift+enter': [keychord, keychord]}])
+  var handle = ev([{handler: keychord, decoder: identity}, {'ctrl+shift+enter': [{handler: keychord, decoder: identity}, {handler: keychord, decoder: identity}]}])
   t.deepEqual(handle(event('ctrl+shift+enter')), ['ctrl+shift+enter', ['ctrl+shift+enter', 'ctrl+shift+enter']])
+
+  t.deepEqual(ev(identity)({type: 'input', target: {nodeName: 'INPUT', value: 'test'}}), 'test')
   t.end()
 })
 

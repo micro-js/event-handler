@@ -14,7 +14,7 @@ Syntax sugar for events handlers. Kind of like the excellent, [classnames](https
 
 ## Usage
 
-This module gives you some special syntax to make your event handlers more declarative and functional. You can create handlers for only certain keypresses, or easily attach multiple handlers to a single event. 
+This module gives you some special syntax to make your event handlers more declarative and functional. You can create handlers for only certain keypresses, or easily attach multiple handlers to a single event.
 
 This example calls `updateText` with every keydown event, but also calls `submit` only when enter is pressed:
 
@@ -41,6 +41,19 @@ This will close the input and submit when `enter` is pressed, it will also updat
 ## Return values
 
 If you rely on the return values of your handler, we have you covered. The value returned by your handlers will be returned from the constructed handler. If you've passed an array, that array will be mapped [over](https://github.com/micro-js/over) the event, and the resulting array will be returned.
+
+## Decoders
+
+There is another syntax for specifying these handlers, which is the ability to pass pure functional decoders to transform the event before passing it in to the handler. You may specify it like this:
+
+```js
+const select = node => node.select()
+const decodeNode = e => e.target
+
+ev({handler: select, decoder: decodeNode})
+```
+
+You may also declaratively specify `stopPropagation: true` and `preventDefault: true`. These capabilities are useful for creating more functionally pure, declarative event handlers.
 
 ## API
 

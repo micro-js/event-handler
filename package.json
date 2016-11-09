@@ -9,6 +9,9 @@
     "postversion": "git push && git push --tags && npm publish --access=public"
   },
   "dependencies": {
+    "@f/get-value": "^1.0.1",
+    "@f/has": "^1.0.1",
+    "@f/identity": "^1.1.1",
     "@f/is-array": "^1.1.1",
     "@f/is-function": "^1.1.1",
     "@f/is-object": "^1.1.4",
