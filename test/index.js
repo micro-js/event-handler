@@ -22,6 +22,21 @@ test('should work', function (t) {
   t.end()
 })
 
+test('default handler', function (t) {
+  var descriptor = {
+    'ctrl+shift+enter': function() {
+      return 'combination'
+    },
+    'default': function() {
+      return 'default'
+    }
+  }
+
+  t.equal(ev(descriptor)(event('ctrl+shift+enter')), 'combination')
+  t.equal(ev(descriptor)(event('x')), 'default')
+  t.end()
+})
+
 /**
  * Helpers
  */

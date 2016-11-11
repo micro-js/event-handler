@@ -32,11 +32,22 @@ You may pass an array, object, or just a plain function, and you may also do any
 var ev = require('@f/event-handler')
 
 function render () {
-  return <input onKeyDown={ev[{enter: [submit, close]}, updateText]} />
+  return <input onKeyDown={ev([{enter: [submit, close]}, updateText])} />
 }
 ```
 
 This will close the input and submit when `enter` is pressed, it will also update the text on every normal keydown.
+If your descriptor is an object, the 'default' key will match every event:
+
+```js
+var ev = require('@f/event-handler')
+
+function render () {
+  return <input onKeyDown={ev({enter: submit, default: updateText})} />
+}
+```
+
+This will submit the input when `enter` is pressed and update the text on every __other__ keydown.
 
 ## Return values
 
